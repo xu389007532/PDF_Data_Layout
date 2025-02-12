@@ -1,0 +1,7 @@
+*.exe
+/__pycache__
+/build
+/DATA
+/dist
+/PDF
+/error

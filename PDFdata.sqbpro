@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/xu/Python/PDF_Data_Layout/PDFdata.db" readonly="0" foreign_keys="" case_sensitive_like="" temp_store="" wal_autocheckpoint="" synchronous=""/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3627"/><column_width id="4" width="0"/></tab_structure><tab_browse><current_table name="0,0:"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">INSERT INTO `JobInfo` VALUES(&quot;key2&quot;,10)
+SELECT * FROM JobInfo
+DELETE FROM JobInfo where path ='D:/PDF/RC/4081485-2 L1 RC SAMPLE.pdf'
+update JobInfo set StartSeq=1</sql><current_tab id="0"/></tab_sql></sqlb_project>
