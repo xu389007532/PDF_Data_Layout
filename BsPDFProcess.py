@@ -379,7 +379,7 @@ class mainwindow(QMainWindow):
     def read_lotus_LaserRoom_PDFItems(self,BsKey):
         key=BsKey.split("#")
         s = win32com.client.Dispatch('Notes.NotesSession')
-        db = s.GetDatabase(ui_mainwindow.Lotus_server, "PublicNSF\LaserMat.nsf")
+        db = s.GetDatabase(ui_mainwindow.Lotus_server, "PublicNSF\\LaserMat.nsf")
         view = db.GetView("searchPDFbyjoblot")
         dc = view.GetAllDocumentsByKey(key[0], True)
         item =[]
@@ -398,8 +398,8 @@ class mainwindow(QMainWindow):
     def read_lotus_LaserRoom(self,BsKey):
         key=BsKey.split("#")
         s = win32com.client.Dispatch('Notes.NotesSession')
-        db = s.GetDatabase(self.Lotus_server, "PublicNSF\LaserMat.nsf")
-        db_bsseq = s.GetDatabase(self.Lotus_server, "PublicNSF\QM.nsf")
+        db = s.GetDatabase(self.Lotus_server, "PublicNSF\\LaserMat.nsf")
+        db_bsseq = s.GetDatabase(self.Lotus_server, "PublicNSF\\QM.nsf")
         view = db.GetView("searchPDFbyjoblot")
         view_bsseq = db_bsseq.GetView("BsSeqBykey3")
         dc = view.GetAllDocumentsByKey(key[0], True)
@@ -925,8 +925,8 @@ class mainwindow(QMainWindow):
                 # 查找编号
 
                 for s in l["spans"]:  # iterate through the text spans
-                    checkjob = re.findall('\d{7}-\d{1}.*\.(pdf|indd|eps)   \d{1,7}', s["text"], re.I)
-                    checkdatetime = re.findall('\d{1,4}/\d{1,2}/\d{1,4}   \d{1,2}:\d{1,2}', s["text"], re.I)
+                    checkjob = re.findall(r'\d{7}-\d{1}.*\.(pdf|indd|eps)   \d{1,7}', s["text"], re.I)
+                    checkdatetime = re.findall(r'\d{1,4}/\d{1,2}/\d{1,4}   \d{1,2}:\d{1,2}', s["text"], re.I)
                     # print(s["color"],type(s["color"]))
                     #2236191=CMYK 黑色(或直接插入PDF稿件的文字), 0=RGB 黑色; 16777215=白色
                     if (s["color"] not in self.fontcolor) and not (checkjob or checkdatetime):
@@ -1755,7 +1755,7 @@ def combine(list1):
 
     t1 = []
     for s in os.listdir(scanfold):
-        checkname=re.findall(PDF_filename+'_C1_\d{7}-\d{7}\.pdf',s,re.S)
+        checkname=re.findall(PDF_filename+r'_C1_\d{7}-\d{7}\.pdf',s,re.S)
         if checkname:
             pass
             QMessageBox.information(ui_mainwindow, "錯誤提示!", "PDF檔: "+s+"已處理! 程式不會再處理此檔案. " + chr(10)+"如需要重新處理, 請先刪除已處理的PDF檔.")
